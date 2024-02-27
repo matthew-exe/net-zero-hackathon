@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">finalAttempt</string>
+    <string name="close">Close</string>
+    <string name="electricity_consumption">Electricity Consumption:</string>
+</resources>

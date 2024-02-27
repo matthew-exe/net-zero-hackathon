@@ -1,0 +1,106 @@
+{
+    "PGB": {
+        "dataset": "",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": true,
+        "consumption_totals": {
+            "electric_consumption": 707810.28,
+            "heat_consumption": 535457.36,
+            "water_consumption": 0
+        },
+        "footprint": {
+            "electric_co2": 136607.38,
+            "heating_co2": 96382.32,
+            "water_co2": 0.0,
+            "total": 232989.7
+        },
+        "cost_totals": {
+            "electric_cost": 31851462.6,
+            "heating_cost": 5729393.75,
+            "water_cost": 0,
+            "total_cost": 37580856.35
+        }
+    },
+    "DH": {
+        "dataset": "",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": true,
+        "consumption_totals": {
+            "electric_consumption": 266511.0,
+            "heat_consumption": 342284.42,
+            "water_consumption": 1201.6
+        },
+        "footprint": {
+            "electric_co2": 51436.62,
+            "heating_co2": 61611.2,
+            "water_co2": 179.04,
+            "total": 113226.86
+        },
+        "cost_totals": {
+            "electric_cost": 11992995.0,
+            "heating_cost": 3662443.29,
+            "water_cost": 444592.0,
+            "total_cost": 16100030.29
+        }
+    },
+    "KH": {
+        "dataset": "",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": true,
+        "consumption_totals": {
+            "electric_consumption": 126365.5,
+            "heat_consumption": 21420.3,
+            "water_consumption": 203.49
+        },
+        "footprint": {
+            "electric_co2": 24388.54,
+            "heating_co2": 3855.65,
+            "water_co2": 30.32,
+            "total": 28274.51
+        },
+        "cost_totals": {
+            "electric_cost": 5686447.5,
+            "heating_cost": 229197.21,
+            "water_cost": 75291.3,
+            "total_cost": 5990936.01
+        }
+    },
+    "FB": {
+        "dataset": "",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": true,
+        "consumption_totals": {
+            "electric_consumption": 582220.43,
+            "heat_consumption": 151366.34,
+            "water_consumption": 252576.0
+        },
+        "footprint": {
+            "electric_co2": 112368.54,
+            "heating_co2": 27245.94,
+            "water_co2": 37633.82,
+            "total": 177248.3
+        },
+        "cost_totals": {
+            "electric_cost": 26199919.35,
+            "heating_cost": 1619619.84,
+            "water_cost": 93453120.0,
+            "total_cost": 121272659.19
+        }
+    }
+}

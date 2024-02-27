@@ -1,0 +1,86 @@
+{
+    "PGB": {
+        "dataset": "PGB.csv",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": false,
+        "mains_water": false,
+        "rain_harvest": false,
+        "consumption_totals": {
+            "electric_consumption": 707810.285,
+            "heat_consumption": 535457.363,
+            "water_consumption": 0
+        },
+        "footprint": {
+            "electric_co2": 136607.38500500002,
+            "heating_co2": 96382.32534,
+            "water_co2": 0.0,
+            "total": 232989.71034500003
+        }
+    },
+    "DH": {
+        "dataset": "DH.csv",
+        "mains_electric": true,
+        "solar_electric": false,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": false,
+        "consumption_totals": {
+            "electric_consumption": 266511.0,
+            "heat_consumption": 342284.419,
+            "water_consumption": 1201.6
+        },
+        "footprint": {
+            "electric_co2": 51436.623,
+            "heating_co2": 61611.19542,
+            "water_co2": 179.03839999999997,
+            "total": 113226.85682
+        }
+    },
+    "KH": {
+        "dataset": "KH.csv",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": false,
+        "mains_water": false,
+        "consumption_totals": {
+            "electric_consumption": 126365.5,
+            "heat_consumption": 21420.3,
+            "water_consumption": 203.48899999999998
+        },
+        "footprint": {
+            "electric_co2": 24388.5415,
+            "heating_co2": 3855.6539999999995,
+            "water_co2": 30.319860999999996,
+            "total": 28274.515360999998
+        },
+        "cost_totals": {
+            "electric_cost": 0,
+            "heating_cost": 0,
+            "water_cost": 0
+        }
+    },
+    "FB": {
+        "dataset": "FB.csv",
+        "mains_electric": true,
+        "solar_electric": true,
+        "mains_gas": true,
+        "heat_pump": true,
+        "mains_water": false,
+        "rain_harvest": false,
+        "consumption_totals": {
+            "electric_consumption": 582220.427,
+            "heat_consumption": 151366.34,
+            "water_consumption": 252576.0
+        },
+        "footprint": {
+            "electric_co2": 112368.542411,
+            "heating_co2": 27245.941199999997,
+            "water_co2": 37633.824,
+            "total": 177248.307611
+        }
+    }
+}
