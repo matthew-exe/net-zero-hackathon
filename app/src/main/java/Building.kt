@@ -12,6 +12,7 @@ class Building(
 ) {
     var aSHP: Boolean = false
     var projectList: buildingProjects = buildingProjects()
+    var evChargers = 0
 
     fun increaseElectricConsumption(amount: Double) {
         consumptionTotals.electricConsumption += amount

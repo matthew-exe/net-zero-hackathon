@@ -82,6 +82,12 @@
                 android:layout_height="wrap_content"
                 android:text="Financial Burden:"
                 android:textSize="18dp"/>
+            <TextView
+                android:id="@+id/staffHappiness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Happiness:"
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -103,10 +109,10 @@
                 android:text="Co2 Reduction:"
                 android:textSize="18sp"/>
             <TextView
-                android:id="@+id/staffHappiness"
+                android:id="@+id/savingsTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Happiness:"
+                android:text="Savings:"
                 android:textSize="18sp"/>
         </LinearLayout>
 

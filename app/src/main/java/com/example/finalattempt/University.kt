@@ -9,6 +9,7 @@ class University(val buildings: List<Building>) {
 
     val baseC02: Double
     val baseCosts: Double
+    var totalSavings: Double = 0.0
     var projectCosts: Double = 0.0
     var excpectedReduction: Double = 0.0
     var staffHappiness: Double = 0.0
@@ -20,6 +21,7 @@ class University(val buildings: List<Building>) {
         totalFootprint = getTotalFootprint()
         baseC02 = getTotalFootprint()
         baseCosts = getTotalExpenditure()
+
     }
 
     fun getTotalExpenditure(): Double {

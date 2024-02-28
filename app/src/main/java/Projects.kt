@@ -1,11 +1,16 @@
 import com.example.finalattempt.University
 
 class Projects {
-    fun evChargerInstall (university: University, index:Int){
-        university.buildings[index].increaseElectricConsumption(13000.00)
-        university.buildings[index].increaseElectricCost(13000.00 * university.energyCosts.electric)
-        university.projectCosts += 750
-        university.staffHappiness += 10
+    fun evChargerInstall (university: University, index:Int, units: Int){
+        val oldLoad = (13000 * university.energyCosts.electric) * university.buildings[index].projectList.eVChargerInstall
+        university.totalSavings += oldLoad
+        val newLoad = (13000 * university.energyCosts.electric) * units
+        university.totalSavings -= newLoad
+        university.projectCosts += (750 * units).toDouble()
+        university.projectCosts -= 750 * university.buildings[index].projectList.eVChargerInstall
+        university.staffHappiness += (5 * units).toDouble()
+        university.staffHappiness -= (5 * university.buildings[index].projectList.eVChargerInstall).toDouble()
+        university.buildings[index].projectList.eVChargerInstall = units
     }
 
     fun ledBulbReplacement(university: University, index:Int){
@@ -13,6 +18,7 @@ class Projects {
             university.buildings[index].projectList.ledBulbReplacement = true
             university.excpectedReduction += (university.buildings[index].consumptionTotals.electricConsumption * 0.04) * university.carbonCosts.electric
             university.projectCosts += 5000
+            university.totalSavings -= (university.buildings[index].consumptionTotals.electricConsumption * 0.04) * university.energyCosts.electric
         }
     }
 
@@ -21,26 +27,39 @@ class Projects {
         university.buildings[index].projectList.ledBulbReplacement = false
         university.excpectedReduction -= (university.buildings[index].consumptionTotals.electricConsumption * 0.04) * university.carbonCosts.electric
         university.projectCosts -= 5000
+        university.totalSavings += (university.buildings[index].consumptionTotals.electricConsumption * 0.04) * university.energyCosts.electric
     }
 
     fun ledFixtureReplacement(university: University, index:Int){
         if(!(university.buildings[index].projectList.ledBulbReplacement && university.buildings[index].projectList.ledFixtureReplacement)){
-            university.buildings[index].projectList.ledBulbReplacement = true
+            university.buildings[index].projectList.ledFixtureReplacement = true
             university.excpectedReduction += (university.buildings[index].consumptionTotals.electricConsumption * 0.07) * university.carbonCosts.electric
             university.projectCosts += 85000
+            university.totalSavings += (university.buildings[index].consumptionTotals.electricConsumption * 0.07) * university.energyCosts.electric
         }
     }
 
     fun undoLedFixtureReplacement(university: University, index:Int){
-        university.buildings[index].projectList.ledBulbReplacement = false
+        university.buildings[index].projectList.ledFixtureReplacement = false
         university.excpectedReduction -= (university.buildings[index].consumptionTotals.electricConsumption * 0.07) * university.carbonCosts.electric
+        university.totalSavings -= (university.buildings[index].consumptionTotals.electricConsumption * 0.07) * university.energyCosts.electric
         university.projectCosts -= 85000
     }
 
     fun lightingControls(university: University, index:Int){
-        university.buildings[index].decreaseElectricConsumption(university.buildings[index].consumptionTotals.electricConsumption * 0.02)
+        university.buildings[index].projectList.lightControls = true
+        university.excpectedReduction += (university.buildings[index].consumptionTotals.electricConsumption * 0.02) * university.carbonCosts.electric
         university.projectCosts += 8000
+        university.totalSavings += (university.buildings[index].consumptionTotals.electricConsumption * 0.02) * university.energyCosts.electric
     }
+
+    fun undoLightingControls(university: University, index:Int){
+        university.buildings[index].projectList.lightControls = false
+        university.excpectedReduction -= (university.buildings[index].consumptionTotals.electricConsumption * 0.02) * university.carbonCosts.electric
+        university.projectCosts -= 8000
+        university.totalSavings -= (university.buildings[index].consumptionTotals.electricConsumption * 0.02) * university.energyCosts.electric
+    }
+
 
     fun monitorUpgrade(university: University, index:Int){
         university.buildings[index].decreaseElectricConsumption(university.buildings[index].consumptionTotals.electricConsumption * 0.002)

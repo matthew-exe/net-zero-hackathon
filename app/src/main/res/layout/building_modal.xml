@@ -155,6 +155,24 @@
             android:layout_height="wrap_content">
 
             <TableRow>
+                <!--EV Charger -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EV Charger:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£5000"/>
+                <Spinner
+                    android:id="@+id/numberSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </TableRow>
+
+            <TableRow>
             <!--LED Bulb Replacement-->
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,6 +205,25 @@
                     android:text="£85000"/>
                 <CheckBox
                     android:id="@+id/ledFixturesCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+                <!-- Lighting Controls -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lighting Controls:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£8000"/>
+                <CheckBox
+                    android:id="@+id/lightControlCheckbox"
                     android:layout_width="wrap_content"
                     android:layout_margin="3dp"
                     android:layout_height="wrap_content" />

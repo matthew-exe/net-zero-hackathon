@@ -1,5 +1,5 @@
 class buildingProjects(){
-    var eVChargerInstall: Boolean = false
+    var eVChargerInstall: Int = 0
     var ledBulbReplacement: Boolean = false
     var ledFixtureReplacement: Boolean = false
     var lightControls: Boolean = false
