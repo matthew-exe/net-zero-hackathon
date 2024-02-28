@@ -165,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
-                    android:text="£5000"/>
+                    android:text="£750 (1)"/>
                 <Spinner
                     android:id="@+id/numberSpinner"
                     android:layout_width="wrap_content"
@@ -224,6 +224,60 @@
                     android:text="£8000"/>
                 <CheckBox
                     android:id="@+id/lightControlCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <!-- Monitor Upgrades -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upgrade Monitors:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£200 (1)"/>
+                <CheckBox
+                    android:id="@+id/computerUpgradeCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <!-- Pump Upgrades -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upgrade Pumps:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£40000"/>
+                <CheckBox
+                    android:id="@+id/pumpUpgradeCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <!-- Air Source Heat Pump -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Air Source Heat Pump:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£175000"/>
+                <CheckBox
+                    android:id="@+id/ashpUpgradeCheckbox"
                     android:layout_width="wrap_content"
                     android:layout_margin="3dp"
                     android:layout_height="wrap_content" />

@@ -8,7 +8,8 @@ class Building(
     var rainHarvest: Boolean,
     var consumptionTotals: ConsumptionTotals,
     var footprint: Footprint,
-    var costTotals: CostTotals
+    var costTotals: CostTotals,
+    var numComputers: Int
 ) {
     var aSHP: Boolean = false
     var projectList: buildingProjects = buildingProjects()

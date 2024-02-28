@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
         false,
         ConsumptionTotals(707810.29, 535457.36, 0.0),
         Footprint(136607.39, 96382.30, 0.0, 232989.71),
-        CostTotals(318514.63, 57293.94, 0.0, 375808.57))
+        CostTotals(318514.63, 57293.94, 0.0, 375808.57),
+        876)
     private var dorsetHouse = Building(
         "Dorset House",
         true,
@@ -52,7 +53,8 @@ class MainActivity : AppCompatActivity() {
         false,
         ConsumptionTotals(266511.0, 342284.42, 1201.6),
         Footprint(51436.62, 61611.20, 179.04, 113226.86),
-        CostTotals(119929.95, 36624.43, 444.59, 156998.97))
+        CostTotals(119929.95, 36624.43, 444.59, 156998.97),
+        8)
     var kimmeridgeHouse = Building(
         "Kimmeridge House",
         true,
@@ -63,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         false,
         ConsumptionTotals(126365.5, 21420.3, 203.49),
         Footprint(24388.54, 3855.65, 30.32, 28274.52),
-        CostTotals(56864.48, 2291.97, 75.29, 59231.74))
+        CostTotals(56864.48, 2291.97, 75.29, 59231.74),452)
     var fusionBuilding = Building(
         "Fusion Building",
         true,
@@ -74,7 +76,8 @@ class MainActivity : AppCompatActivity() {
         true,
         ConsumptionTotals(582220.43, 151366.34, 252576.0),
         Footprint(112368.43, 27245.95, 37633.82, 177248.31),
-        CostTotals(261999.19, 16196.2, 93453.12, 371648.51))
+        CostTotals(261999.19, 16196.2, 93453.12, 371648.51),
+        300)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -160,6 +163,9 @@ class MainActivity : AppCompatActivity() {
         var ledBulbReplacementCheckBox = dialogView.findViewById<CheckBox>(R.id.ledBulbCheckBox)
         var ledFixturesCheckBox = dialogView.findViewById<CheckBox>(R.id.ledFixturesCheckBox)
         var lightingControlsCheckBox = dialogView.findViewById<CheckBox>(R.id.lightControlCheckbox)
+        var computerUpgradeCheckbox = dialogView.findViewById<CheckBox>(R.id.computerUpgradeCheckbox)
+        var pumpUpgradeCheckbox = dialogView.findViewById<CheckBox>(R.id.pumpUpgradeCheckbox)
+        var ashpUpgradeCheckbox = dialogView.findViewById<CheckBox>(R.id.ashpUpgradeCheckbox)
 
         if(building.projectList.ledBulbReplacement){
             ledFixturesCheckBox.isEnabled = false
@@ -167,8 +173,18 @@ class MainActivity : AppCompatActivity() {
             ledBulbReplacementCheckBox.isEnabled = false
         }
 
+        if(building.name == "Dorset House"){
+            ashpUpgradeCheckbox.isEnabled = true
+        } else {
+            ashpUpgradeCheckbox.isEnabled = false
+        }
+
         ledBulbReplacementCheckBox.isChecked = building.projectList.ledBulbReplacement
         ledFixturesCheckBox.isChecked = building.projectList.ledFixtureReplacement
+        lightingControlsCheckBox.isChecked = building.projectList.lightControls
+        computerUpgradeCheckbox.isChecked = building.projectList.computerUpgrades
+        pumpUpgradeCheckbox.isChecked = building.projectList.pumpUpgrades
+        ashpUpgradeCheckbox.isChecked = building.projectList.ashp
 
         ledBulbReplacementCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
@@ -192,7 +208,6 @@ class MainActivity : AppCompatActivity() {
                 ledBulbReplacementCheckBox.isEnabled = true
             }
         }
-
         lightingControlsCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 projects.lightingControls(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
@@ -202,13 +217,12 @@ class MainActivity : AppCompatActivity() {
                 updateStats()
             }
         }
-
         val numberSpinner = dialogView.findViewById<Spinner>(R.id.numberSpinner)
         val numbers = (0..10).map { it.toString() }
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, numbers)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         numberSpinner.adapter = adapter
-        numberSpinner.setSelection(building.evChargers)
+        numberSpinner.setSelection(building.projectList.eVChargerInstall)
         numberSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
                 val selectedNumber = parent.getItemAtPosition(position).toString().toInt()
@@ -220,7 +234,39 @@ class MainActivity : AppCompatActivity() {
                 // Another interface callback
             }
         }
+        // Monitor Upgrades!
+        computerUpgradeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                projects.monitorUpgrade(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+            } else {
+                projects.undoMonitorUpgrade(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+            }
+        }
+        // Pump Upgrace
+        pumpUpgradeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                projects.pumpUpgrade(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+            } else {
+                projects.undoPumpUpgrade(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+            }
+        }
 
+        // Airsource Heatpump Upgrade - DORSET HOUSE ONLY
+        ashpUpgradeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                projects.airSourceHeatPump(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+            } else {
+                projects.undoAirSourceHeatPump(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                dodgeASHPBug()
+                updateStats()
+
+            }
+        }
 
         val dialogBuilder = AlertDialog.Builder(this)
             .setView(dialogView)
@@ -239,4 +285,12 @@ class MainActivity : AppCompatActivity() {
         totalSavings.text = "Total Savings: " + university.totalSavings
     }
 
+    private fun dodgeASHPBug(){
+        if(university.totalSavings < 0 && university.totalSavings > -13){
+            university.totalSavings = 0.0
+        }
+        if(university.excpectedReduction < 0 && university.excpectedReduction > -13){
+            university.excpectedReduction = 0.0
+        }
+    }
 }

@@ -3,9 +3,10 @@ class buildingProjects(){
     var ledBulbReplacement: Boolean = false
     var ledFixtureReplacement: Boolean = false
     var lightControls: Boolean = false
-    var computerUpgrades: Int = 0
+    var computerUpgrades: Boolean = false
     var pumpUpgrades: Boolean = false
     var serverUpgrades: Boolean = false
+    var boilerUpgrades: Boolean = false
     var insulationWalls: Boolean = false
     var insulationRoof: Boolean = false
     var insulationPipes: Boolean = false
@@ -16,4 +17,6 @@ class buildingProjects(){
     var freezeThem: Boolean = false
     var changeHourse: Boolean = false
     var makeItDark: Boolean = false
+    var stupidASHPBug1: Pair<Double, Double> = Pair(0.0, 0.0)
+    var stupidASHPBug2: Pair<Double, Double> = Pair(0.0, 0.0)
 }
