@@ -92,17 +92,17 @@ class MainActivity : AppCompatActivity() {
         fusionBtn = findViewById(R.id.fusionBtn)
 
         currentCo2 = findViewById(R.id.currentCo2Levels)
-        currentCo2.text = "Current CO2: " + university.baseC02
+        currentCo2.text = "Current CO2: %.2f".format(university.baseC02)
         currentCost = findViewById(R.id.currentFinancialCosts)
-        currentCost.text = "Current Financials: " + university.baseCosts
+        currentCost.text = "Current Financials: £%,.2f".format(university.baseCosts)
         projectCosts = findViewById(R.id.projectCosts)
-        projectCosts.text = "Project Costs: " + university.projectCosts
+        projectCosts.text = "Project Costs: £%,.2f".format(university.projectCosts)
         co2Reduction = findViewById(R.id.co2Reduction)
-        co2Reduction.text = "Estimated cO2 Reduction: " + university.excpectedReduction
+        co2Reduction.text = "Estimated CO2 Reduction: %.2f".format(university.expectedReduction)
         staffHappiness = findViewById(R.id.staffHappiness)
-        staffHappiness.text = "Staff Happiness: " + university.staffHappiness
+        staffHappiness.text = "Staff Happiness: %.2f".format(university.staffHappiness)
         totalSavings = findViewById(R.id.savingsTotal)
-        totalSavings.text = "Total Savings: " + university.totalSavings
+        totalSavings.text = "Total Savings: £%,.2f".format(university.totalSavings)
 
         pooleGatewayBtn.setOnClickListener{
             openBuildingModal(pooleGateway)
@@ -279,18 +279,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateStats(){
-        projectCosts.text = "Project Costs: " + university.projectCosts
-        co2Reduction.text = "Estimated cO2 Reduction: " + university.excpectedReduction
-        staffHappiness.text = "Staff Happiness: " + university.staffHappiness
-        totalSavings.text = "Total Savings: " + university.totalSavings
+        projectCosts.text = "Project Costs: £%,.2f".format(university.projectCosts)
+        co2Reduction.text = "Estimated CO2 Reduction: %.2f".format(university.expectedReduction)
+        staffHappiness.text = "Staff Happiness: %.2f".format(university.staffHappiness)
+        totalSavings.text = "Total Savings: £%,.2f".format(university.totalSavings)
     }
 
     private fun dodgeASHPBug(){
         if(university.totalSavings < 0 && university.totalSavings > -13){
             university.totalSavings = 0.0
         }
-        if(university.excpectedReduction < 0 && university.excpectedReduction > -13){
-            university.excpectedReduction = 0.0
+        if(university.expectedReduction < 0 && university.expectedReduction > -13){
+            university.expectedReduction = 0.0
         }
     }
 }

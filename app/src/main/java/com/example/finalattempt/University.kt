@@ -11,7 +11,7 @@ class University(val buildings: List<Building>) {
     val baseCosts: Double
     var totalSavings: Double = 0.0
     var projectCosts: Double = 0.0
-    var excpectedReduction: Double = 0.0
+    var expectedReduction: Double = 0.0
     var staffHappiness: Double = 0.0
     var energyCosts = EnergyCosts(0.45, 0.107, 0.37)
     var carbonCosts = EnergyCosts(0.193, 0.180, 0.149)
