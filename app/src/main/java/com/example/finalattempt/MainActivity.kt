@@ -6,13 +6,11 @@ import CostTotals
 import Footprint
 import Projects
 import android.os.Bundle
-
-
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusionBtn: Button
     private lateinit var university: University
     private lateinit var projects: Projects
+    val buildingIndexList = listOf("Poole Gateway Building","Dorset House","Kimmeridge House","Fusion Building")
+    private lateinit var currentCo2: TextView
+    private lateinit var currentCost: TextView
+    private lateinit var projectCosts: TextView
+    private lateinit var co2Reduction: TextView
+    private lateinit var staffHappiness: TextView
 
     private var pooleGateway = Building(
         "Poole Gateway Building",
@@ -82,6 +86,17 @@ class MainActivity : AppCompatActivity() {
         kimmeridgeBtn = findViewById(R.id.kimmeridgeBtn)
         fusionBtn = findViewById(R.id.fusionBtn)
 
+        currentCo2 = findViewById(R.id.currentCo2Levels)
+        currentCo2.text = "Current CO2: " + university.baseC02
+        currentCost = findViewById(R.id.currentFinancialCosts)
+        currentCost.text = "Current Financials: " + university.baseCosts
+        projectCosts = findViewById(R.id.projectCosts)
+        projectCosts.text = "Project Costs: " + university.projectCosts
+        co2Reduction = findViewById(R.id.co2Reduction)
+        co2Reduction.text = "Estimated cO2 Reduction: " + university.excpectedReduction
+        staffHappiness = findViewById(R.id.staffHappiness)
+        staffHappiness.text = "Staff Happiness: " + university.staffHappiness
+
         pooleGatewayBtn.setOnClickListener{
             openBuildingModal(pooleGateway)
         }
@@ -94,11 +109,12 @@ class MainActivity : AppCompatActivity() {
         fusionBtn.setOnClickListener{
             openBuildingModal(fusionBuilding)
         }
+
     }
 
     private fun openBuildingModal(building: Building) {
         val dialogView = layoutInflater.inflate(R.layout.building_modal, null)
-
+        setCheckBoxes()
         val closeBtn = dialogView.findViewById<Button>(R.id.closeBtn)
 
         val buildingModalTitle = dialogView.findViewById<TextView>(R.id.buildingModalTitle)
@@ -137,6 +153,43 @@ class MainActivity : AppCompatActivity() {
         val totalCostHolder = dialogView.findViewById<TextView>(R.id.totalCost)
         totalCostHolder.text = "Total Expenditure: " + building.costTotals.totalCost.toString()
 
+        var ledBulbReplacement = dialogView.findViewById<CheckBox>(R.id.ledBulbCheckBox)
+        var ledFixtures = dialogView.findViewById<CheckBox>(R.id.ledFixturesCheckBox)
+        if(building.projectList.ledBulbReplacement){
+            ledFixtures.isEnabled = false
+        }
+        if(building.projectList.ledFixtureReplacement){
+            ledBulbReplacement.isEnabled = false
+        }
+
+        ledBulbReplacement.isChecked = building.projectList.ledBulbReplacement
+        ledFixtures.isChecked = building.projectList.ledFixtureReplacement
+
+        ledBulbReplacement.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                projects.ledBulbReplacement(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+                ledFixtures.isEnabled = false
+            } else {
+                projects.undoLedBulbReplacement(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+                ledFixtures.isEnabled = true
+            }
+        }
+
+        ledFixtures.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                projects.ledFixtureReplacement(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+                ledBulbReplacement.isEnabled = false
+            } else {
+                projects.undoLedFixtureReplacement(university, buildingIndexList.indexOf(dialogView.findViewById<TextView>(R.id.buildingModalTitle).text))
+                updateStats()
+                ledBulbReplacement.isEnabled = true
+            }
+        }
+
+
         val dialogBuilder = AlertDialog.Builder(this)
             .setView(dialogView)
         
@@ -147,5 +200,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setCheckBoxes(){
+        val dialogView = layoutInflater.inflate(R.layout.building_modal, null)
+
+        var ledBulbReplacement = dialogView.findViewById<CheckBox>(R.id.ledBulbCheckBox)
+
+
+        var ledFixtures = dialogView.findViewById<CheckBox>(R.id.ledFixturesCheckBox)
+
+    }
+
+    private fun updateStats(){
+        projectCosts = findViewById(R.id.projectCosts)
+        projectCosts.text = "Project Costs: " + university.projectCosts
+        co2Reduction = findViewById(R.id.co2Reduction)
+        co2Reduction.text = "Estimated cO2 Reduction: " + university.excpectedReduction
+        staffHappiness = findViewById(R.id.staffHappiness)
+        staffHappiness.text = "Staff Happiness: " + university.staffHappiness
+    }
 
 }

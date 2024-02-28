@@ -11,6 +11,8 @@ class Building(
     var costTotals: CostTotals
 ) {
     var aSHP: Boolean = false
+    var projectList: buildingProjects = buildingProjects()
+
     fun increaseElectricConsumption(amount: Double) {
         consumptionTotals.electricConsumption += amount
         costTotals.electricCost += amount * 0.45

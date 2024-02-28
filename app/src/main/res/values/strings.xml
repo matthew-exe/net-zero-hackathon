@@ -2,4 +2,6 @@
     <string name="app_name">finalAttempt</string>
     <string name="close">Close</string>
     <string name="electricity_consumption">Electricity Consumption:</string>
+    <string name="install_ev_charger">Install EV Charger:</string>
+    <string name="led_bulb_replacement">LED Bulb Replacement:</string>
 </resources>

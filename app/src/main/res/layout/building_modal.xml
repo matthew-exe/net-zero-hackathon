@@ -1,132 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-
-    <TextView
-        android:id="@+id/buildingModalTitle"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#673AB7"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/buildingModalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#673AB7"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="10sp"
+            android:text="Total Consumption:"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/electricConsumptionTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/heatConsumptionTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/waterConsumptionTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="10sp"
+            android:text="Carbon Footprint:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/electricFootprint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/heatFootprint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/waterFootprint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/totalFootprint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="10sp"
+            android:text="Total Costs:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/electricCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/heatCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/waterCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:text="@string/electricity_consumption" />
+
+        <TextView
+            android:id="@+id/totalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/electricity_consumption"
+            android:layout_marginLeft="5sp" />
+
+
+        <Button
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginTop="10sp"
-        android:text="Total Consumption:"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/electricConsumptionTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="10sp"
+            android:text="Projects:"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/heatConsumptionTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/waterConsumptionTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
+            <TableRow>
+            <!--LED Bulb Replacement-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/led_bulb_replacement"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£5000"/>
+                <CheckBox
+                    android:id="@+id/ledBulbCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginTop="10sp"
-        android:text="Carbon Footprint:"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            <TableRow>
+                <!-- LED Fixtures Replacement -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Replace LED Fixtures:"
+                    android:layout_margin="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="£85000"/>
+                <CheckBox
+                    android:id="@+id/ledFixturesCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
-    <TextView
-        android:id="@+id/electricFootprint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/heatFootprint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/waterFootprint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/totalFootprint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginTop="10sp"
-        android:text="Total Costs:"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/electricCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/heatCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/waterCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:text="@string/electricity_consumption" />
-
-    <TextView
-        android:id="@+id/totalCost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/electricity_consumption"
-        android:layout_marginLeft="5sp" />
-
-
-    <Button
-        android:id="@+id/closeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/close"
-        android:layout_gravity="center"/>
-
+        </TableLayout>
+    </LinearLayout>
 </LinearLayout>
+
