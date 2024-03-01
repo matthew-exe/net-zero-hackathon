@@ -1,2 +1,1 @@
-# thehack
-we gonna do the hack
+Our mobile application for the net zero hackathon
